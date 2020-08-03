@@ -15,7 +15,7 @@ async def loop():
     now = datetime.datetime.now()
     currentDoW = now.strftime('%a')
     currentTime = now.strftime('%H:%M')
-    tomorrowDate = (now + datetime.timedelta(days=1)).strftime('%Y'+'%2F'+'%m'+'%2F'+'%d')
+    tomorrowDate = (now + datetime.timedelta(days=1)).strftime('%Y'+r'%2F'+'%m'+r'%2F'+'%d')
     # For Mon MTG
     if currentDoW == 'Mon' and currentTime == '17:00':
         await client.wait_until_ready()
