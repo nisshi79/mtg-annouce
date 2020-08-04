@@ -9,6 +9,8 @@ TOKEN = os.environ['DISCORD_BOT_TOKEN']
 
 mtgs = toml.load(open('./mtgs.toml'))
 
+print(mtgs)
+
 client = discord.Client()
 
 @client.event
@@ -20,7 +22,7 @@ async def on_ready():
     print('------------------------')
 
 
-@tasks.loop(seconds=6)
+@tasks.loop(seconds=60)
 async def loop():
     # 現在の時刻
     now = datetime.datetime.now().strftime('%a %H:%M')
