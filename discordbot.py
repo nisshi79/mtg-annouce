@@ -26,12 +26,12 @@ async def loop():
     now = datetime.datetime.now().strftime('%a %H:%M')
     tomorrowDate = (datetime.datetime.now() + datetime.timedelta(days=1)).strftime('%Y'+r'%2F'+'%m'+r'%2F'+'%d')
     for mtg in mtgs.values():
-        # if now == mtg['annouceTiming']:
-        await client.wait_until_ready()
-        channel = client.get_channel(mtg['channelId'])
-        print(channel)
-        announceMessage = mtg['message'].format(mtgDate=tomorrowDate)
-        await channel.send(announceMessage)
+        if now == mtg['annouceTiming']:
+            await client.wait_until_ready()
+            channel = client.get_channel(mtg['channelId'])
+            print(channel)
+            announceMessage = mtg['message'].format(mtgDate=tomorrowDate)
+            await channel.send(announceMessage)
 
 #ループ処理実行
 loop.start()
